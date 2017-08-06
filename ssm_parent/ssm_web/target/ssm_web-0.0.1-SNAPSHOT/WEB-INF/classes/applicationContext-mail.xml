@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!--<description>JavaMail 的配置</description>-->
+
+	<!--&lt;!&ndash; 加载配置文件 &ndash;&gt;-->
+	<!--&lt;!&ndash;<context:property-placeholder location="mail.properties"/>&ndash;&gt;-->
+
+	<!--&lt;!&ndash; 配置一个简单邮件对象 &ndash;&gt;-->
+	<!--<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">-->
+		<!--<property name="from" value="Memoriai_imain@126.com"></property>-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; 邮件的发送对象 &ndash;&gt;-->
+	<!--<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">-->
+		<!--<property name="host" value="smtp.126.com"/>-->
+		<!--<property name="username" value="Memoriai_imain@126.com"/>-->
+		<!--<property name="password" value="zxg19970428"/>-->
+		<!--<property name="defaultEncoding" value="utf-8"/>-->
+
+		<!--&lt;!&ndash; 邮件的其他属性 &ndash;&gt;-->
+		<!--<property name="javaMailProperties">-->
+			<!--<props>-->
+				<!--&lt;!&ndash; 认证开关 &ndash;&gt;-->
+				<!--<prop key="mail.smtp.auth">true</prop>-->
+				<!--&lt;!&ndash; 调试开关 &ndash;&gt;-->
+				<!--<prop key="mail.debug">true</prop>-->
+				<!--&lt;!&ndash; 发送延迟 &ndash;&gt;-->
+				<!--<prop key="mail.smtp.timeout">0</prop>-->
+			<!--</props>-->
+		<!--</property>-->
+	<!--</bean>-->
+
+
+
+	<description>JavaMail配置</description>
+
+	<!-- 配置一个简单的邮件对象 -->
+	<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="Memoriai_imain@126.com"/>
+	</bean>
+	
+	<!-- 配置一个邮件发送对象 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="username" value="Memoriai_imain@126.com"/>
+		<property name="password" value="zxg19970428"/>
+		<property name="host" value="smtp.126.com"/>
+		<property name="defaultEncoding" value="utf-8"/>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.timeout">0</prop>
+				<prop key="mail.smtp.auth">true</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
