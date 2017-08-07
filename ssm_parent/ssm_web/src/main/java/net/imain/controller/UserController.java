@@ -6,6 +6,7 @@ import net.imain.utils.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import net.imain.domain.User;
@@ -13,6 +14,8 @@ import net.imain.service.UserService;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 import java.util.Random;
 
 @Controller
@@ -92,5 +95,23 @@ public class UserController {
 		return view;
 	}
 
+
+	@ResponseBody
+	@RequestMapping(value = "/test.do")
+	public String test(String name, @RequestParam(value = "password") String pwd) {
+		System.out.println("test.do");
+		return name + pwd;
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/test1.do")
+	/**
+	 * @QueryParam 是接收url中的JSON形式的数据
+	 * 此例：QueryParam 的参数名为 id, 请求的url为：localhost:8080/test1.do?id=1
+	 * 		return 1
+	 */
+	public Integer test1(@QueryParam(value = "id") int id) {
+		return id;
+	}
 
 }
