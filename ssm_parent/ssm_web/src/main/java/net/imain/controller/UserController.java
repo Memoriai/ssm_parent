@@ -94,24 +94,4 @@ public class UserController {
 
 		return view;
 	}
-
-
-	@ResponseBody
-	@RequestMapping(value = "/test.do")
-	public String test(String name, @RequestParam(value = "password") String pwd) {
-		System.out.println("test.do");
-		return name + pwd;
-	}
-
-	@ResponseBody
-	@RequestMapping(value = "/test1.do")
-	/**
-	 * @QueryParam 是接收url中的JSON形式的数据
-	 * 此例：QueryParam 的参数名为 id, 请求的url为：localhost:8080/test1.do?id=1
-	 * 		return 1
-	 */
-	public Integer test1(@QueryParam(value = "id") int id) {
-		return id;
-	}
-
 }

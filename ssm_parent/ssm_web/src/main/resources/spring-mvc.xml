@@ -45,4 +45,6 @@
 
     <!-- 全局异常处理 -->
     <bean class="net.imain.exception.SysExceptionResolver"></bean>
+
+    <!-- 远程方法调用的一种技术 -->
 </beans>
